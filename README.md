@@ -1,6 +1,6 @@
 # PECWMA(Program dEpendence based Concurrent Weak Mutation Analysis) - A C++ mutation testing tool
 
-## Mutant opreators
+## 1、Mutant opreators
 PECWMA supports the opeartors as below:
 
 |Name         | Description           | Example  |
@@ -19,32 +19,33 @@ PECWMA supports the opeartors as below:
 | ROV | Replace the operation value     | `foo(a,b)` -> `foo(b,a)` OR `a-b`->`b-a`      |
 | ABV | Take absolute value     | `foo(a,b)` -> `foo(abs(a),b)` OR `a-b` ->  `abs(a)-b`      |
 
-## Build Steps
-1. make a directory, such as `mkdir build`, `cd build`
-2. run `cmake dir-to-pecwma`, if cmake run in infinite loop, you should stop it with `Ctrl^C`, and run
-```
-export CC=/usr/local/bin/clang
-export CXX=/usr/local/bin/clang++
-```
-[Maybe this is the reason?](https://stackoverflow.com/questions/7031126/switching-between-gcc-and-clang-llvm-using-cmake) Or it is a bug?
-3. run `make`
-4. create a pecwma.json like below,
-```json
-{
-    "object":{
-        "bubble":{
-            "mutantsPath":"/home/tang/tools/test/CPMS/src/mutator/source/shuju/bubble/MutationT/",
-            "programPath":"/home/tang/tools/test/CPMS/src/mutator/source/shuju/bubble/Source/bubble.c",
-            "rootPath":"/home/tang/tools/test/CPMS/src/mutator/build/",
-            "testcasePath":"/home/tang/tools/test/CPMS/src/mutator/source/shuju/bubble/Testcase/"
-        },
-        "tcas":{
-            "mutantsPath":"/home/tang/tools/test/CPMS/src/mutator/source/shuju/tcas/MutationT/",    //directory of mutants
-            "programPath":"/home/tang/tools/test/CPMS/src/mutator/source/shuju/tcas/Source/tcas.c", //path to source file
-            "rootPath":"/home/tang/tools/test/CPMS/src/mutator/build/",                             //work directory
-            "testcasePath":"/home/tang/tools/test/CPMS/src/mutator/source/shuju/tcas/Testcase/"     //directory of testcase 
+## 2、Build Steps
+1. Make a directory, such as `mkdir build & cd build`
+2. Run `cmake dir-to-pecwma`, if cmake run in infinite loop, you should stop it with `Ctrl^C`, and run the code below. [Maybe this is the reason?](https://stackoverflow.com/questions/7031126/switching-between-gcc-and-clang-llvm-using-cmake)
+    ```
+    export CC=/usr/local/bin/clang
+    export CXX=/usr/local/bin/clang++
+    ```
+
+
+3. Run `make`
+4. Create a pecwma.json like below,
+    ```json
+    {
+        "object":{
+            "bubble":{
+                "mutantsPath":"/home/tang/tools/test/CPMS/src/mutator/source/shuju/bubble/MutationT/",
+                "programPath":"/home/tang/tools/test/CPMS/src/mutator/source/shuju/bubble/Source/bubble.c",
+                "rootPath":"/home/tang/tools/test/CPMS/src/mutator/build/",
+                "testcasePath":"/home/tang/tools/test/CPMS/src/mutator/source/shuju/bubble/Testcase/"
+            },
+            "tcas":{
+                "mutantsPath":"/home/tang/tools/test/CPMS/src/mutator/source/shuju/tcas/MutationT/",    
+                "programPath":"/home/tang/tools/test/CPMS/src/mutator/source/shuju/tcas/Source/tcas.c", 
+                "rootPath":"/home/tang/tools/test/CPMS/src/mutator/build/",                            
+                "testcasePath":"/home/tang/tools/test/CPMS/src/mutator/source/shuju/tcas/Testcase/"      
+            }
         }
     }
-}
-```
+    ```
 5. run `./Pecwma`
