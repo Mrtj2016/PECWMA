@@ -1,0 +1,3 @@
+export CPLUS_INCLUDE_PATH=/usr/local/lib/clang/8.0.0/include:/home/tang/tools/ardupilot/libraries:$CPLUS_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=/usr/local/lib/clang/8.0.0/include
+export C_INCLUDE_PATH=/usr/local/lib/clang/8.0.0/include
